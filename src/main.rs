@@ -1,3 +1,5 @@
+use exploring::bicycle::{Bicycle};
+
 struct User {
     name: String,
     email: String,
@@ -94,4 +96,11 @@ fn main() {
         Err(err) => println!("{}", err)
     }
     
+    let mountain_bike = Bicycle::new("Mountain Bike", 29, "Red", false);
+    let road_bike = Bicycle::new("Road Bike", 28, "Blue", false);
+
+    // Print the Bicycle using the Display trait
+    println!("{}", mountain_bike);
+    // Print the Bicycle using the Debug trait
+    println!("{:?}", road_bike);
 }
