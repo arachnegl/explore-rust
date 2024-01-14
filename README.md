@@ -9,6 +9,7 @@ cargo new explore            # create project
 cargo test                   # run tests
 cargo clippy                 # format
 cargo build                  # binary build
+cargo doc                    # docs built and found in target dir
 ./target/debug/exploring     # binary run
 
 ```
