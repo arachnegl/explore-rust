@@ -17,8 +17,8 @@ impl User {
 }
 
 
-// Railway oriented programming (Guard Rails)
-// metaphor of switching between success and failure tracks.
+// Railway oriented programming (Guard Rails) begin
+// immediate error handling by switching between success and failure tracks.
 
 fn get_user_option(name: &str) -> Option<User> {
     if name == "Greg" {
@@ -37,8 +37,32 @@ fn get_user_result(name: &str) -> Result<User, String> {
         Err(String::from("Not Found"))
     }
 }
+// Railway oriented programming (Guard Rails) end
+
+// macro_rules! begin
+//
+// metaprogramming, compile time code generation (no runtime cost).
+// variadic function - takes arguments of any number and almost any type. (including code blocks.)
+// Hygiene - handle variable names and binding in a way that avoids conflicts - safe and predictable
+// used for: implementing traits for multiple types, creating variadic functions, 
+// generating repetitive code, building DSLs.
+// Use sparingly.
+macro_rules! create_function {
+    ($func_name:ident) => {
+        fn $func_name() {
+            println!("Macro Function {:?} called", stringify!($func_name));
+        }
+    };
+}
+
+create_function!(foo);
+create_function!(bar);
+// macro_rules! end
 
 fn main() {
+    foo();
+    bar();
+    //
     let _res = exploring::add(2, 3);
     println!(
     // variadic macro ("!" defines a macro)
